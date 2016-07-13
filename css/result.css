@@ -1,0 +1,300 @@
+@charset "UTF-8";
+/*   澶栭儴鏂囦欢  */
+/* line 2, com.scss */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box; }
+
+/* line 7, com.scss */
+ul, ol, li {
+  list-style: none; }
+
+/* line 10, com.scss */
+a {
+  text-decoration: none; }
+
+/* line 20, com.scss */
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+/* line 4, result.scss */
+.c {
+  width: 100%;
+  height: 100%; }
+
+/*-------------------------header------------------------------------*/
+/* line 9, result.scss */
+.c-header {
+  width: 100%;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  text-align: center;
+  background: #fff;
+  position: relative; }
+  /* line 16, result.scss */
+  .c-header h1 {
+    font-size: 20px;
+    color: #333; }
+  /* line 20, result.scss */
+  .c-header #c-header-back {
+    position: absolute;
+    left: 1.0rem;
+    top: 50%;
+    margin-top: -.7rem;
+    width: 0.8rem;
+    height: 1.4rem;
+    background: url(../img/c1_03.jpg) no-repeat;
+    background-size: 100% 100%;
+    font-size: 0; }
+
+/*-----------------------main--------------------------------*/
+/* line 34, result.scss */
+.c-main {
+  background: #F9F9F9;
+  position: absolute;
+  width: 100%;
+  top: 3.5rem;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll; }
+
+/* line 44, result.scss */
+.c-main-content {
+  background: #F6514B;
+  height: 121px;
+  width: 100%;
+  padding: 23px 5% 23px 5%;
+  position: relative; }
+  /* line 51, result.scss */
+  .c-main-content div {
+    width: 80%;
+    font-size: 12px;
+    color: #fff; }
+    /* line 55, result.scss */
+    .c-main-content div h2 {
+      font-size: 18px;
+      color: #fff;
+      height: 26px;
+      line-height: 26px; }
+  /* line 62, result.scss */
+  .c-main-content p {
+    width: 80%;
+    font-size: 10px;
+    color: #FFC5C3;
+    line-height: 16px; }
+  /* line 68, result.scss */
+  .c-main-content #c-con-more {
+    background: url(../img/c-1.png) no-repeat;
+    background-size: cover;
+    width: 10px;
+    height: 18px;
+    position: absolute;
+    right: 5%;
+    top: 0;
+    margin-top: 50px;
+    font-size: 0; }
+
+/*----------------------------yishi---------------------------------*/
+/* line 81, result.scss */
+.c-main-good, .c-main-bad {
+  background: #fff;
+  margin-top: 14px;
+  width: 100%;
+  position: relative;
+  /* xiasanjiao  */ }
+  /* line 86, result.scss */
+  .c-main-good h3, .c-main-bad h3 {
+    border: 1px solid #eee;
+    height: 41px;
+    line-height: 41px;
+    padding-left: 5%;
+    color: #F6514B;
+    font-size: 15px; }
+  /* line 95, result.scss */
+  .c-main-good .c-good-more, .c-main-bad .c-good-more, .c-main-bad .c-bad-more {
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #727272;
+    border-right: 2px solid #727272;
+    -webkit-transform: rotate(135deg);
+    position: absolute;
+    right: 5%;
+    top: 0;
+    margin-top: 14px;
+    /* shangsanjiao  */ }
+    /* line 102, result.scss */
+    .c-main-good .c-good-more.c-bg, .c-main-bad .c-good-more.c-bg, .c-main-bad .c-bg.c-bad-more {
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid #727272;
+      border-right: 2px solid #727272;
+      -webkit-transform: rotate(-45deg);
+      position: absolute;
+      right: 5%;
+      top: 0;
+      margin-top: 17px; }
+
+/* line 112, result.scss */
+.c-main-bad {
+  background: #fff;
+  clear: both;
+  margin-bottom: 14px;
+  margin-top: 0;
+  /* xiasanjiao  */ }
+
+/* line 126, result.scss */
+.c-good-hide, .c-bad-hide {
+  display: none;
+  width: 100%; }
+  /* line 129, result.scss */
+  .c-good-hide dl, .c-bad-hide dl {
+    width: 50%;
+    text-align: center;
+    float: left;
+    margin-top: 9px; }
+    /* line 135, result.scss */
+    .c-good-hide dl dt img, .c-bad-hide dl dt img {
+      width: 138px;
+      height: 140px; }
+    /* line 140, result.scss */
+    .c-good-hide dl dd, .c-bad-hide dl dd {
+      font-size: 14px;
+      color: #262626;
+      height: 37px;
+      line-height: 37px; }
+  /* line 147, result.scss */
+  .c-good-hide.c-on, .c-on.c-bad-hide {
+    display: block; }
+
+/*----------------------------buyishi--------------------------*/
+/*-----------------------------xiangqing------------------------------*/
+/* line 158, result.scss */
+.c-content-hide {
+  display: none; }
+  /* line 161, result.scss */
+  .c-content-hide .c-con {
+    height: 50px;
+    line-height: 50px;
+    background: #F6514B;
+    color: #FEE8E7;
+    font-size: 15px;
+    padding-left: 5%;
+    position: relative; }
+    /* line 169, result.scss */
+    .c-content-hide .c-con span {
+      display: inline-block;
+      font-size: 15px; }
+  /* line 175, result.scss */
+  .c-content-hide .c-hide-cor {
+    position: absolute;
+    left: 50%;
+    top: 38px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-bottom: 6px solid #fff; }
+  /* line 184, result.scss */
+  .c-content-hide .c-hide-top {
+    padding: 16px 5% 12px 5%; }
+    /* line 186, result.scss */
+    .c-content-hide .c-hide-top dl {
+      display: -webkit-flex;
+      width: 100%; }
+      /* line 189, result.scss */
+      .c-content-hide .c-hide-top dl dt {
+        font-size: 10px;
+        color: #333;
+        line-height: 18px; }
+      /* line 194, result.scss */
+      .c-content-hide .c-hide-top dl dd {
+        -webkit-flex-grow: 1;
+        width: 65%;
+        font-size: 10px;
+        color: #333;
+        line-height: 18px; }
+        /* line 200, result.scss */
+        .c-content-hide .c-hide-top dl dd:last-child {
+          width: 55%; }
+  /* line 209, result.scss */
+  .c-content-hide .c-read-content {
+    width: 100%;
+    height: 44px;
+    background: #fff;
+    display: inline-block;
+    border: 1px solid #eee;
+    line-height: 44px;
+    text-align: center; }
+    /* line 217, result.scss */
+    .c-content-hide .c-read-content i {
+      display: inline-block;
+      height: 44px;
+      line-height: 44px;
+      float: left;
+      margin-left: 40%;
+      font-size: 12px;
+      font-style: normal; }
+    /* line 226, result.scss */
+    .c-content-hide .c-read-content em {
+      display: inline-block;
+      float: left;
+      margin-top: 14px;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid #727272;
+      border-right: 2px solid #727272;
+      -webkit-transform: rotate(135deg);
+      margin-left: 2%;
+      font-weight: normal; }
+      /* line 233, result.scss */
+      .c-content-hide .c-read-content em.c-style {
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid #727272;
+        border-right: 2px solid #727272;
+        -webkit-transform: rotate(-45deg);
+        margin-top: 19px; }
+  /* line 239, result.scss */
+  .c-content-hide .c-hide-bottom {
+    display: none; }
+    /* line 241, result.scss */
+    .c-content-hide .c-hide-bottom h4 {
+      font-size: 12px;
+      color: #333;
+      line-height: 35px;
+      position: relative;
+      width: 100%;
+      padding-left: 10%; }
+      /* line 249, result.scss */
+      .c-content-hide .c-hide-bottom h4 a {
+        position: absolute;
+        left: 5%;
+        top: 0;
+        background: url(../img/c-6.png) no-repeat;
+        background-size: contain;
+        width: 10px;
+        height: 9px;
+        font-size: 0;
+        margin-top: 12px; }
+    /* line 262, result.scss */
+    .c-content-hide .c-hide-bottom ul {
+      width: 100%;
+      padding: 0 5%; }
+      /* line 265, result.scss */
+      .c-content-hide .c-hide-bottom ul li {
+        width: 100%;
+        color: #333;
+        font-size: 10px;
+        line-height: 18px; }
+        /* line 270, result.scss */
+        .c-content-hide .c-hide-bottom ul li span {
+          display: inline-block;
+          background: url(../img/c-7.png) no-repeat;
+          background-size: contain;
+          width: 8px;
+          height: 8px;
+          margin-right: 2%; }
+
+/*# sourceMappingURL=result.css.map */

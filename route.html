@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style1.css"> 
+    <link rel="stylesheet" href="css/result.css">
+</head>
+<body ng-app="myApp">
+	 
+    <div class="container" ng-view>
+         
+    </div>  
+			
+		
+   
+     <script src="js/angular.min.js"></script>
+     <script src="js/angular-route.js"></script>
+     <script src="js/jquery.js"></script>
+     <script src="js/result.js"></script>
+     <script src="js/dialog.js"></script>
+     <script src="js/iscroll.js"></script>
+     
+    <script>
+    var app=angular.module("myApp",["ngRoute"]);
+        app.config(["$routeProvider",function($routeProvider){
+         $routeProvider
+         .otherwise({redirectTo:"/index"})
+         .when("/index",{templateUrl:"page/index.html"})
+         .when("/page1",{templateUrl:"page/page1.html"})
+         .when("/page2",{
+         	templateUrl:"page/page2.html"
+         })
+         .when("/page3",{templateUrl:"page/page3.html"})
+         .when("/page4",{templateUrl:"page/page4.html"})
+         .when("/page5",{templateUrl:"page/page5.html"})
+         .when("/page6",{templateUrl:"page/page6.html"})
+         
+         }]);
+
+      angular.module('myApp').directive('changeBin',changeBin)
+                             .directive("changeSex",changeSex)
+                             .directive("changeFood",changeFood)
+                             .directive("changeLike",changeLike)
+                             .directive("changeFeel",changeFeel)
+                             .directive("changeResult",changeResult)
+
+     function changeSex(){
+     	  return{
+     	  	 link:function(){
+     	  	 	 $(".option").on("click","dl",function(){
+      	  			 $(this).addClass("on").siblings().removeClass("on");
+
+      	  		}); 
+     	  	 }
+     	  }
+     }
+
+      function changeBin(){
+      	  return{
+      	  	link:function(){
+      	  		$(".menu").on("click","p",function(){
+      	  			 change($(this));
+      	  		});
+      	  		$(".page2Choose").on("click","li",function(){
+                if($(this).hasClass('on')){
+                  $(this).removeClass("on");
+                }else{
+                  $(this).addClass("on");
+                }
+      	  		});
+      	  	   $(".go").on("click",function(){
+      	  	   	  if($(".menu .on").index()==1){
+      	  	   	  	if($(".page2Choose .on").length==0){
+      	  	   	  		 $.dialog({
+      	  	   	  		 	info:"你还未选择病史，请选择病史",
+      	  	   	  		 	btn:"确定",
+                        hrefs:"#/page2"
+      	  	   	  		 })
+
+      	  	   	  	  return false;;
+      	  	   	  	}
+      	  	   	  }
+
+      	  	   });
+
+      	  	}
+      	  }
+      }
+     
+    
+     function changeFood(){
+     	  return{
+     	  	 link:function(){
+     	  	 	 $(".menu").on("click","p",function(){
+      	  			 change($(this));
+      	  		});
+      	  		$(".page2Choose").on("click","li",function(){
+                if($(this).hasClass('on')){
+                  $(this).removeClass("on");
+                }else{
+                  $(this).addClass("on");
+                }
+      	  		});
+      	  	$(".go").on("click",function(){
+      	  	   	  if($(".menu .on").index()==1){
+      	  	   	  	if($(".page2Choose .on").length==0){
+      	  	   	  		 $.dialog({
+      	  	   	  		 	info:"你还未选择过敏食物，请选择",
+      	  	   	  		 	btn:"确定",
+                        hrefs:"#/page3"
+                        
+      	  	   	  		 })
+      	  	   	  	
+      	  	   	  	  return false;
+      	  	   	  	}
+      	  	   	  }
+
+      	  	   });
+     	  	 }
+     	  }
+     }
+  function changeLike(){
+    return{
+      link:function(){
+        $("#testBox ul").on("click","li",function(){
+           if($(this).find("label").hasClass("on")){
+              $(this).find("label").removeClass("on");
+           }else{
+             $(this).find("label").addClass("on");
+           }
+           
+       })
+       
+       $("#testBtn").on("click",function(){
+                   $.dialog({
+                      info:"亲，我们为您准备了60道体质测试题，请耐心如实答题，获取真实体质结果",
+                      btn:"开始测试",
+                      hrefs:"#/page5"
+                   })
+
+            });
+      }
+    }
+       
+  }
+  function changeFeel(){
+      return{
+               link:function(){
+                   $("ul").on("click","a",function(){
+                          $(this).addClass("on").siblings().removeClass("on");
+                    })
+                      
+                    $(".go").on("click",function(){
+                      var len=$(".r_main").find(".on").size();
+                        if(len<60){
+                            alert("您还有"+(60-len)+"个没有选择");
+                            //return false;
+                         }else{
+                          alert("提交成功");
+                        }
+                    })
+               }
+            }
+  }
+  function changeResult(){
+  	 return{
+    	 	link:function(){
+    	    	init();
+    	 	 
+    	 	}
+	
+      }
+  }
+  function init(){
+  /*	new IScroll('.c-main',{
+                    click:true,
+                    scrollY:true
+            })*/
+		//content函数
+		content();
+		//c-main-good函数
+		good();
+		//c-main-bad函数
+		bad();
+       
+	}
+//content函数
+function content(){
+	//当点击c-con-more时，出现c-content-hide
+	$(".c-main-content").on("click",function(){
+		$('.c-main-content').hide();
+		$(".c-content-hide").show();
+	})
+	//当点击c-header-back时，返回c-main-content
+	$("#c-header-back").on("click",function(){
+		$('.c-main-content').show();
+		$(".c-content-hide").hide();
+	})
+	//当点击c-read-content时，出现c-hide-bottom
+	$(".c-read-content").on("click",function(){
+		$(".c-hide-bottom").slideToggle(1000);
+		$(this).find("em").toggleClass("c-style");
+		
+		if($(this).find("em").hasClass("c-style")){
+            $('.c-read-con').text('收起')
+		}else{
+			$('.c-read-con').text('阅读全文')
+			$('.c-read-con').show();
+		};
+		
+
+	})
+};
+
+//c-main-good函数
+function good(){
+	//当点击c-good-more时，出现c-good-hide
+	$('.c-main-good').on("click",function(){
+		 $('.c-good-hide').toggleClass("c-on");
+		 $(".c-good-more").toggleClass('c-bg');
+    })
+};
+
+
+//c-main-bad函数
+function bad(){
+	//当点击c-good-more时，出现c-good-hide
+	$(".c-main-bad").on("click",function(){
+		 $('.c-bad-hide').toggleClass("c-on");
+		 $('.c-bad-more').toggleClass('c-bg');
+    })
+};
+
+     function change(_this){
+           var idx=_this.index();
+      	  			 _this.addClass("on").siblings().removeClass("on");
+      	  			 if(idx==1){
+      	  			 	_this.parent().next().css("display","-webkit-flex");
+      	  			 }else{
+      	  			 	_this.parent().next().css("display","none");
+      	  			 	_this.parent().next().find("li").removeClass("on");
+      	  			 }
+     }
+
+   
+	
+	 angular.module('myApp')
+	       .controller('customersCtrl',function($scope,$http){
+		   $http.get("yfell.json")
+   		 	.success(function(response) {$scope.names= response.records;});
+	    })
+	
+	
+ 
+
+
+    </script>
+
+</body>
+</html>

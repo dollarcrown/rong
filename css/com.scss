@@ -1,0 +1,67 @@
+@charset "utf-8";
+*{
+	margin:0;
+	padding:0;
+	-webkit-box-sizing:border-box;	
+}
+ul,ol,li{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+@mixin pos($p:relative){
+	position:$p;
+}
+@mixin full{
+	width:100%;
+	height:100%;
+}
+body,html{
+	@include full;
+	overflow:hidden;
+}
+//弹性盒
+@mixin flex{
+	display:-webkit-flex;
+}
+@mixin flexto($num:1){
+	-webkit-flex-grow:$num;
+}
+@mixin dir($d:column){
+	-webkit-flex-direction:$d;
+}
+//下三角
+@mixin drawdown(){
+	width:10px;
+	height:10px;
+	border-top:2px solid #727272;
+	border-right:2px solid #727272;
+	-webkit-transform:rotate(135deg);
+
+}
+//上三角
+@mixin drawtop(){
+	width:10px;
+	height:10px;
+	border-top:2px solid #727272;
+	border-right:2px solid #727272;
+	-webkit-transform:rotate(-45deg);
+
+}
+
+//头部弹性盒
+@mixin center($para){
+	@if($para==space-between){
+	justify-content:space-between;
+	align-item:baseline;
+	}
+	@else if($para==space-around){
+	justify-content:$para;
+	align-item:stretch;
+	}
+	@else{
+	justify-content:$para;
+	align-item:$para;
+	}
+}

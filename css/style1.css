@@ -1,0 +1,602 @@
+@charset "UTF-8";
+/* line 2, public.scss */
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none; }
+
+/* line 8, public.scss */
+html, body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
+/* line 19, public.scss */
+body {
+  position: relative;
+  overflow: hidden; }
+
+/* line 23, public.scss */
+html, body, li, ul, ol, img {
+  margin: 0;
+  padding: 0; }
+
+/* line 27, public.scss */
+li {
+  list-style-type: none; }
+
+/* line 30, public.scss */
+a {
+  text-decoration: none; }
+
+/* line 42, public.scss */
+.clear:after, .clear:before {
+  content: '';
+  display: block; }
+/* line 46, public.scss */
+.clear:after {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  clear: both; }
+
+/* line 162, public.scss */
+.mask {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999999; }
+
+/*-------dialog弹出框----------*/
+/* line 172, public.scss */
+.dialog-box {
+  width: 80%;
+  height: 130px;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999999999; }
+  /* line 185, public.scss */
+  .dialog-box .dialog-title {
+    border-bottom: 1px solid #ccc;
+    line-height: 40px;
+    text-indent: 10px;
+    font-size: 12px; }
+  /* line 191, public.scss */
+  .dialog-box .dialog-msg {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 10%; }
+  /* line 202, public.scss */
+  .dialog-box .dialog-btn-wrap {
+    width: 60%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 10%;
+    display: -webkit-box;
+    -webkit-box-pack: center; }
+    /* line 209, public.scss */
+    .dialog-box .dialog-btn-wrap .dialog-btn {
+      -webkit-flex: 1;
+      width: 40%;
+      height: 34px;
+      border: 1px solid #37BC9B;
+      border-radius: 5px;
+      display: block;
+      text-align: center;
+      line-height: 34px;
+      color: #666;
+      cursor: pointer; }
+    /* line 221, public.scss */
+    .dialog-box .dialog-btn-wrap .no {
+      margin-left: 50px; }
+
+@keyframes bounceInUp {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 3000px, 0);
+    -ms-transform: translate3d(0, 3000px, 0);
+    transform: translate3d(0, 3000px, 0); }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    -ms-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0); }
+  75% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    -ms-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0); }
+  90% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    -ms-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0); }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+/* line 267, public.scss */
+.bounceInUp {
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp; }
+
+@minxi justcenter {
+  align-items: center;
+  justify-content: between; }
+/* line 3, style1.scss */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  list-style: none; }
+
+/* line 9, style1.scss */
+body {
+  font-size: 16px;
+  font-family: "Microsoft YaHei";
+  -webkit-tap-highlightcolor: transparent;
+  /*去除在手机上点击时出现的半透明色块*/
+  -webkit-user-select: none;
+  /*禁止用户选中*/
+  -webkit-text-size-adjust: none;
+  /*旋转屏幕时禁止自动调整文字大小*/ }
+
+/* line 16, style1.scss */
+.animated {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+/*
+@-webkit-keyframes rotate{
+	0%{	
+		opacity:0;
+		-webkit-transform:rotate3d(0,0,0);
+	}
+	100%{
+		opacity:1;
+		-webkit-transform:rotate3d(0,0,1,360deg);
+	}
+}
+-webkit-animation: rotate 3s;*/
+/* line 35, style1.scss */
+a {
+  text-decoration: none; }
+
+/* line 42, style1.scss */
+body, html, .container {
+  width: 100%;
+  height: 100%; }
+
+/* line 50, style1.scss */
+.content1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 45px;
+  left: 0;
+  background: #f6514b; }
+
+/* line 58, style1.scss */
+.container {
+  position: relative; }
+
+/* line 63, style1.scss */
+.head {
+  height: 3.5rem;
+  line-height: 3.5rem;
+  background: #fff;
+  position: relative; }
+  /* line 69, style1.scss */
+  .head .back {
+    position: absolute;
+    left: 1.0rem;
+    top: 50%;
+    margin-top: -.7rem;
+    width: 0.8rem;
+    height: 1.4rem;
+    background: url(../img/c1_03.jpg) no-repeat;
+    background-size: 100% 100%; }
+  /* line 79, style1.scss */
+  .head h4 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 3.5rem; }
+
+/* line 90, style1.scss */
+#sexSection {
+  -webkit-flex: 1;
+  width: 100%;
+  height: 60%;
+  padding-top: 3rem;
+  overflow: hidden;
+  position: relative;
+  background: url(../img/bg2.gif) no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto; }
+  /* line 111, style1.scss */
+  #sexSection #sexBox {
+    background-size: 100% 90%; }
+    /* line 113, style1.scss */
+    #sexSection #sexBox h4 {
+      text-align: center;
+      color: #B00600;
+      font-size: 1.8rem;
+      margin-bottom: 3.0rem; }
+    /* line 119, style1.scss */
+    #sexSection #sexBox .option {
+      display: -webkit-flex; }
+      /* line 122, style1.scss */
+      #sexSection #sexBox .option dl {
+        -webkit-flex: 1;
+        text-align: center; }
+        /* line 126, style1.scss */
+        #sexSection #sexBox .option dl dt {
+          width: 100%;
+          height: 6rem;
+          margin: 0 auto; }
+          /* line 130, style1.scss */
+          #sexSection #sexBox .option dl dt img {
+            width: 5rem;
+            height: 100%; }
+        /* line 136, style1.scss */
+        #sexSection #sexBox .option dl dd p {
+          line-height: 5.0rem; }
+        /* line 139, style1.scss */
+        #sexSection #sexBox .option dl dd label {
+          margin: 0 auto;
+          display: block;
+          width: 1.7rem;
+          height: 1.7rem;
+          font-size: 0;
+          border: .1rem solid #666;
+          border-radius: 50%; }
+        /* line 150, style1.scss */
+        #sexSection #sexBox .option dl.on label {
+          background: url(../img/c2_07.gif) no-repeat;
+          background-size: 100% 100%; }
+
+/* line 164, style1.scss */
+.go {
+  position: absolute;
+  width: 30%;
+  height: 3.0rem;
+  background: url(../img/go.gif) no-repeat;
+  background-size: 100% 100%;
+  border: none;
+  font-size: 0;
+  left: 50%;
+  margin-left: -13%;
+  bottom: 40px; }
+
+/*          有无病例            */
+/* line 179, style1.scss */
+.goo {
+  display: block;
+  width: 30%;
+  height: 3.0rem;
+  background: url(../img/go.gif) no-repeat;
+  background-size: 100% 100%;
+  border: none;
+  font-size: 0;
+  margin: 1.5rem auto 0; }
+
+/* line 190, style1.scss */
+#historySection, #allergicSection {
+  width: 100%;
+  height: 65%; }
+
+/* line 196, style1.scss */
+#sicknessBox, #foodBox, #dislikeSection {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  background-size: 100% 90%;
+  height: 60%;
+  padding: 0 3rem;
+  background: url(../img/bg2.gif) no-repeat center center;
+  background-size: 100% 100%;
+  padding-bottom: 8rem;
+  position: relative;
+  position: absolute;
+  top: -60px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto; }
+  /* line 213, style1.scss */
+  #sicknessBox h4, #foodBox h4, #dislikeSection h4 {
+    text-align: center;
+    color: #B00600;
+    font-size: 1.8rem;
+    margin: 2.5rem 0; }
+  /* line 220, style1.scss */
+  #sicknessBox .content3, #foodBox .content3, #dislikeSection .content3 {
+    -webkit-flex: 1;
+    width: 100%; }
+    /* line 223, style1.scss */
+    #sicknessBox .content3 .menu, #foodBox .content3 .menu, #dislikeSection .content3 .menu {
+      display: -webkit-flex;
+      margin-bottom: 2rem; }
+      /* line 227, style1.scss */
+      #sicknessBox .content3 .menu P, #foodBox .content3 .menu P, #dislikeSection .content3 .menu P {
+        -webkit-flex: 1;
+        display: -webkit-flex;
+        -webkit-align-items: center;
+        -webkit-justify-content: center; }
+        /* line 233, style1.scss */
+        #sicknessBox .content3 .menu P label, #foodBox .content3 .menu P label, #dislikeSection .content3 .menu P label {
+          display: inline-block;
+          width: 1.7rem;
+          height: 1.7rem;
+          font-size: 0;
+          border: .1rem solid #666;
+          border-radius: 50%;
+          margin-right: 1.0rem; }
+        /* line 243, style1.scss */
+        #sicknessBox .content3 .menu P.on label, #foodBox .content3 .menu P.on label, #dislikeSection .content3 .menu P.on label {
+          background: url(../img/c2_07.gif) no-repeat center center;
+          background-size: 90% 90%; }
+    /* line 250, style1.scss */
+    #sicknessBox .content3 ul, #foodBox .content3 ul, #dislikeSection .content3 ul {
+      display: -webkit-flex;
+      -webkit-flex-wrap: wrap;
+      margin: 0 auto;
+      position: relative;
+      width: 95%;
+      border: .1rem solid #666;
+      border-radius: 10px;
+      display: none; }
+      /* line 259, style1.scss */
+      #sicknessBox .content3 ul .arrow, #foodBox .content3 ul .arrow, #dislikeSection .content3 ul .arrow {
+        position: absolute;
+        left: 70%;
+        top: -.9rem;
+        width: 1.3rem;
+        height: .9rem;
+        background: url(../img/up.gif) no-repeat;
+        background-size: 100% 100%; }
+      /* line 268, style1.scss */
+      #sicknessBox .content3 ul li, #foodBox .content3 ul li, #dislikeSection .content3 ul li {
+        width: 30%;
+        height: 2.0rem;
+        text-align: center;
+        line-height: 2.0rem;
+        font-size: 1.2rem;
+        border: .1rem solid #666;
+        border-radius: .3rem;
+        color: #666;
+        margin: .5rem 1.5%; }
+        /* line 279, style1.scss */
+        #sicknessBox .content3 ul li.on, #foodBox .content3 ul li.on, #dislikeSection .content3 ul li.on {
+          border: none;
+          color: #fff;
+          background: #F5514B; }
+
+/* line 291, style1.scss */
+#dislikeSection .test h4 {
+  text-align: center;
+  color: #B00600;
+  font-size: 1.8rem;
+  margin-bottom: 1.0rem; }
+/* line 297, style1.scss */
+#dislikeSection .test ul {
+  display: -webkit-flex;
+  -webkit-flex-wrap: wrap;
+  padding: 0 2.0rem; }
+  /* line 301, style1.scss */
+  #dislikeSection .test ul li {
+    width: 50%;
+    text-align: center;
+    line-height: 2.4rem; }
+    /* line 307, style1.scss */
+    #dislikeSection .test ul li span {
+      position: relative;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-right: 2.0rem; }
+    /* line 314, style1.scss */
+    #dislikeSection .test ul li label, #dislikeSection .test ul li input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.1rem;
+      height: 1.1rem;
+      border: .1rem solid #333; }
+    /* line 323, style1.scss */
+    #dislikeSection .test ul li label.on {
+      background: url(../img/c2_07.gif) no-repeat;
+      background-size: 100% 100%; }
+    /* line 327, style1.scss */
+    #dislikeSection .test ul li input {
+      opacity: 0; }
+/* line 334, style1.scss */
+#dislikeSection .test #testBtn {
+  display: block;
+  width: 30%;
+  height: 3.0rem;
+  margin: 3.0rem auto; }
+
+/*			弹出框			*/
+/* line 345, style1.scss */
+.mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.5);
+  filter: alpha(opacity=50); }
+  /* line 354, style1.scss */
+  .mask .dialog {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -43%;
+    margin-top: -9rem;
+    width: 86%;
+    border-radius: 1.0rem;
+    overflow: hidden;
+    background: #FFF3BF; }
+  /* line 366, style1.scss */
+  .mask .close {
+    position: absolute;
+    right: 2.0rem;
+    top: 0;
+    width: 2.7rem;
+    height: 3.0rem;
+    background: url(../img/ff.png) no-repeat;
+    background-size: 100% 100%; }
+  /* line 375, style1.scss */
+  .mask dl {
+    padding-top: 3.0rem;
+    width: 100%; }
+    /* line 378, style1.scss */
+    .mask dl dt {
+      width: 80%;
+      margin: 0 auto; }
+      /* line 382, style1.scss */
+      .mask dl dt img {
+        width: 100%;
+        height: auto; }
+    /* line 387, style1.scss */
+    .mask dl dd {
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      line-height: 2rem; }
+  /* line 394, style1.scss */
+  .mask p {
+    width: 100%;
+    height: 5.0rem;
+    background: #FAEAA4;
+    padding-top: 1.0rem; }
+    /* line 399, style1.scss */
+    .mask p a {
+      display: block;
+      width: 30%;
+      height: 3.0rem;
+      text-align: center;
+      line-height: 3rem;
+      color: #AF0600;
+      font-weight: bold;
+      background: url(../img/btn.gif) no-repeat;
+      background-size: 100% 100%;
+      margin: 0 auto; }
+
+/* line 416, style1.scss */
+.r_main {
+  display: -webkit-flex;
+  -webkit-flex-direction: column; }
+
+/* line 420, style1.scss */
+.head {
+  z-index: 66; }
+
+/* .r_header{
+	height:3.5rem;
+	width:100%;
+	text-align:center;
+	line-height:3.5rem;
+	font-size:22px;
+	font-weight:bold;
+	background:url(../img/3.png) no-repeat 15px center;
+	background-size:12px 23px;
+	position: relative;
+	z-index: 66;
+} */
+/* line 435, style1.scss */
+.content2 {
+  z-index: 33;
+  top: 3px; }
+
+/* line 439, style1.scss */
+.r_section {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-bottom: 40px;
+  padding-top: 80px;
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  background: url(../img/16.png) no-repeat center center/90% 80% #f6514b; }
+  /* line 449, style1.scss */
+  .r_section ul {
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll; }
+    /* line 455, style1.scss */
+    .r_section ul li {
+      list-style: none;
+      background: url(../img/rect_sm.png) no-repeat 2% 10%;
+      background-size: 8px 8px;
+      font-size: 12px;
+      padding: 0 6%;
+      margin-bottom: 20px;
+      margin-left: 6.5%;
+      color: #333333; }
+      /* line 464, style1.scss */
+      .r_section ul li p {
+        margin-top: 13px;
+        margin-left: -10px; }
+      /* line 468, style1.scss */
+      .r_section ul li a {
+        width: 13%;
+        height: 20px;
+        display: inline-block;
+        text-decoration: none;
+        color: #666666;
+        border: 1px solid #666666;
+        line-height: 20px;
+        text-align: center;
+        margin: 0 8px;
+        font-size: 12px;
+        border-radius: 3px; }
+      /* line 481, style1.scss */
+      .r_section ul li .on {
+        background: #f6514b;
+        color: #fff;
+        border-color: #f6514b; }
+      /* line 487, style1.scss */
+      .r_section ul li #r_a {
+        display: block;
+        width: 28%;
+        margin: 0 33%;
+        height: 40px;
+        background: #ffd56e;
+        line-height: 40px;
+        text-align: center;
+        text-decoration: none;
+        color: #b00600;
+        font-weight: bold; }
+
+/*# sourceMappingURL=style1.css.map */

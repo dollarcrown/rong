@@ -1,0 +1,290 @@
+@charset "UTF-8";
+*,*:before,*:after{
+	box-sizing:border-box;
+	-webkit-box-sizing: border-box;
+	-webkit-tap-highlight-color:transparent;
+	-webkit-touch-callout:none;
+}
+html,body{
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	font-size: 62.5%;
+	height: 100%;
+	width: 100%;
+	overflow:hidden;
+}
+
+body{
+	position: relative;
+	overflow: hidden;
+}
+html,body,li,ul,ol,img{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style-type: none;
+}
+a{
+	text-decoration:none;
+}
+
+//省略字符
+@mixin ellipsis{
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+//清除浮动
+.clear{
+	&:after,&:before{
+		content:'';
+		display:block;
+	}
+	&:after{
+		width:0;
+		height:0;
+		overflow:hidden;
+		clear:both;
+	}
+}
+
+@mixin full{
+	width:100%;
+	height:100%;
+}
+
+//弹性盒
+@mixin _flex{
+	display:-webkit-flex;
+	display:flex;
+}
+
+//垂直分布
+@mixin vertical{
+	-webkit-flex-direction:column;
+	flex-direction:column;
+}
+//占份数
+@mixin group($num){
+	-webkit-flex:$num;
+	flex:$num;
+}
+@mixin transform($r){
+	-webkit-transform:$r;
+}
+@mixin color(){
+	color:#666;
+}
+//定位
+@mixin pos($p:absolute){
+	position:$p;
+}
+//空心向下箭头
+@mixin bottomArrow($c){
+	&::after{
+		content:"";
+		display:inline-block;
+		width:8px;
+		height:8px;
+		border-top:1px solid $c;
+		border-right:1px solid $c;
+		@include transform(rotate(135deg));
+		margin:0 4px 2px;
+	}
+}
+//空心向上箭头
+@mixin topArrow($c){
+	&::after{
+		content:"";
+		display:inline-block;
+		width:8px;
+		height:8px;
+		border-top:1px solid $c;
+		border-right:1px solid $c;
+		@include transform(rotate(-45deg));
+		margin:0 4px 2px;
+	}
+}
+//实心向下箭头
+@mixin bottomArrows($c){
+	&::after{
+		content:"";
+		display:inline-block;
+		border:5px solid transparent;
+		border-top-color:$c;
+		margin:0 0 -4px;
+	}
+}
+//实心向上箭头
+@mixin topArrows($c){
+	&::after{
+		content:"";
+		display:inline-block;
+		border:5px solid transparent;
+		border-bottom-color:$c;
+		margin:0 0 2px;
+	}
+}
+
+@mixin rightArrow($c){//右箭头
+	&::after{
+		content:"";
+		display:inline-block;
+		width:8px;
+		height:8px;
+		border-top:1px solid $c;
+		border-right:1px solid $c;
+		@include transform(rotate(45deg));
+		margin:0 4px 2px;
+	}
+}
+
+@mixin leftArrow($c){//左箭头
+	&::after{
+		content:"";
+		display:inline-block;
+		width:8px;
+		height:8px;
+		border-top:1px solid $c;
+		border-right:1px solid $c;
+		@include transform(rotate(-135deg));
+		margin:0 4px 2px;
+	}
+}
+
+
+
+
+//遮罩层
+.mask{
+	@include full;
+	background:rgba(0,0,0,0.4);
+	@include pos(fixed);
+	left:0;
+	top:0;
+	z-index:9999999;
+}
+
+/*-------dialog弹出框----------*/
+.dialog-box{
+	width:80%;
+	height:130px;
+	background:#fff;
+	overflow:hidden;
+	border-radius:6px;
+	@include pos(fixed);
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	z-index:999999999;
+	.dialog-title{
+		border-bottom:1px solid #ccc;
+		line-height:40px;
+		text-indent:10px;
+		font-size:12px;
+	}
+	.dialog-msg{
+		width:100%;
+		height:20px;
+		line-height:20px;
+		text-align:center;
+		font:{
+			size:14px;
+		}
+		color:#666;
+		margin-top:10%;
+	}
+	.dialog-btn-wrap{
+		width:60%;
+		height:40px;
+		margin:0 auto;
+		margin-top:10%;
+		display:-webkit-box;
+		-webkit-box-pack:center;
+		.dialog-btn{
+			-webkit-flex:1;
+			width:40%;
+			height:34px;
+			border:1px solid #37BC9B;
+			border-radius:5px;
+			display:block;
+			text-align:center;
+			line-height:34px;
+			color:#666;
+			cursor:pointer;
+		}
+		.no{
+			margin-left:50px;
+		}
+	}
+}
+//弹出框动画
+@keyframes bounceInUp {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 3000px, 0);
+    -ms-transform: translate3d(0, 3000px, 0);
+    transform: translate3d(0, 3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    -ms-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    -ms-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    -ms-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+//调用动画
+.bounceInUp {
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+}
+
+@mixin center($para){
+	@if ($para==space-between) {
+		justify-content:$para;
+		align-items:stretch;
+	} @else if ($para==space-around){
+		justify-content:$para;
+		align-items:stretch;
+	} @else {
+		justify-content:$para;
+		align-items:$para;
+	}
+	justify-content:$para;
+	align-items:stretch;
+}
+//两端对齐
+@minxi justcenter{
+	align-items:center;
+	justify-content: between;
+}
